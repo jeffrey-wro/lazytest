@@ -4,6 +4,14 @@
 #include "MyRio.h"
 #include "Ultrasonic.h"
 
+#include "opencv2/core.hpp"
+#include "opencv2/opencv.hpp"
+#include "opencv2/objdetect.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/core/operations.hpp"
+
+
 	#define HAND_LEFT 0
 	#define HAND_CENTER 0
 	#define HAND_RIGHT 0
@@ -47,7 +55,7 @@ public:
 	void weightBack();
 	void rotate180dregees();
 	void detectQRCode();
-	void scanQRCode(QRCodeDetector qrDecoder, Mat display, Mat pts);
+	void scanQRCode(cv::QRCodeDetector qrDecoder, cv::Mat display, cv::Mat pts);
 
 };
 
