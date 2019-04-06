@@ -288,6 +288,7 @@ void Jeffrey::detectQRCode()
 	}
 }
 
+/*
 int Jeffrey::scanQRCode(QRCodeDetector qrDecoder, Mat display, Mat pts)
 {
 	string data; //data will hold the data extracted from the qr code
@@ -305,5 +306,5 @@ int Jeffrey::scanQRCode(QRCodeDetector qrDecoder, Mat display, Mat pts)
 	
 	return HELL;
 }
-	
+*/
 }
