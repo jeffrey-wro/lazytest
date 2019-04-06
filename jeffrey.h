@@ -55,7 +55,7 @@ public:
 	void weightBack();
 	void rotate180dregees();
 	void detectQRCode();
-	void scanQRCode(cv::QRCodeDetector qrDecoder, cv::Mat display, cv::Mat pts);
+	int scanQRCode(cv::QRCodeDetector qrDecoder, cv::Mat display, cv::Mat pts);
 
 };
 

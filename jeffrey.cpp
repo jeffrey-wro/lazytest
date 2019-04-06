@@ -264,11 +264,12 @@ void Jeffrey::rotate180dregees(){
 		mc.setMotorDegrees(DC, speed, 0, speed, rigthCount);
 
 		Utils::waitFor(delay);
+	}
 }
 
-void Jeffrey::detectQRCode()
-{
-	int HELL = 0; int FROZENOVER = 1;
+void Jeffrey::detectQRCode(){
+	int HELL = 0; 
+	int FROZENOVER = 1;
 	cv::Mat display, frame, pts; //matrixes to hold information for detect and decode
 	
 	VideoCapture cam(DEFAULT_CAMERA); //open the default camera
@@ -280,7 +281,7 @@ void Jeffrey::detectQRCode()
 		cam >> frame; //store camera into frame matrix
 		cvtColor(frame, display, COLOR_BGR2GRAY); //convert frame matrix to grayscale and store it in display
 
-		QRCodeDetector qrDecoder = QRCodeDetector(); //create new QRCodeDetector object
+		cv::QRCodeDetector qrDecoder = QRCodeDetector(); //create new QRCodeDetector object
 		if (qrDecoder.detect(display, pts)) //if display contains a qr code...
 		{
 			HELL = scanQRCode(); //scan for qr code
