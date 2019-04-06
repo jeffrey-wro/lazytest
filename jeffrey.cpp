@@ -270,7 +270,7 @@ void Jeffrey::rotate180dregees(){
 void Jeffrey::detectQRCode(){
 	int HELL = 0; 
 	int FROZENOVER = 1;
-	cv::Mat display, frame, pts; //matrixes to hold information for detect and decode
+	Mat display, frame, pts; //matrixes to hold information for detect and decode
 	
 	VideoCapture cam(DEFAULT_CAMERA); //open the default camera
 	if (!cam.isOpened())  //if camera doesn't open return error
@@ -284,16 +284,16 @@ void Jeffrey::detectQRCode(){
 		cv::QRCodeDetector qrDecoder = QRCodeDetector(); //create new QRCodeDetector object
 		if (qrDecoder.detect(display, pts)) //if display contains a qr code...
 		{
-			HELL = scanQRCode(); //scan for qr code
+			HELL = scanQRCode(display, pts); //scan for qr code
 		}
 	}
 }
 
 
-int Jeffrey::scanQRCode(cv::QRCodeDetector qrDecoder, cv::Mat display, cv::Mat pts)
+int Jeffrey::scanQRCode(cv::Mat display, cv::Mat pts)
 {
-	string data; //data will hold the data extracted from the qr code
-	QRCodeDetector qrDecoder = QRCodeDetector();
+	string data = ""; //data will hold the data extracted from the qr code
+	cv::QRCodeDetector qrDecoder = QRCodeDetector();
 	
 	while (data != "whatever")
 	{
@@ -301,11 +301,11 @@ int Jeffrey::scanQRCode(cv::QRCodeDetector qrDecoder, cv::Mat display, cv::Mat p
 		if (data == "whatever")
 		{
 			//do stuff
-			return FROZENOVER; //end the while loop detectQRCode
+			return 1; //end the while loop detectQRCode
 		}
 	}
 	
-	return HELL;
+	return 0;
 }
 
 }
